@@ -1,0 +1,66 @@
+<div class="container">
+     <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.form.valid)">
+           <div>
+                  <label class="fw-bold">Name</label>
+                  <!--bind name to ngModel, it's required with minimum 5 characters-->
+                  <input type="text" name="name" [(ngModel)]="user.name" #name="ngModel" required minlength="5"
+                class="form-control">
+                  <!--show error only when field is not valid & it's dirty or form submited-->
+                  <small [hidden]="name.valid || (name.pristine && !f.submitted)">
+                      Name is required (minimum 5 characters).
+                      </small>
+                  </div>
+
+        <div>
+                  <label class="fw-bold">Address</label>
+                  <!--bind name to ngModel, it's required with minimum 5 characters-->
+                  <input type="text" name="address" [(ngModel)]="user.address" #address="ngModel" required minlength="5"
+                class="form-control">
+                  <!--show error only when field is not valid & it's dirty or form submited-->
+                  <small [hidden]="address.valid || (address.pristine && !f.submitted)">
+                      Address is required (minimum 5 characters).
+                      </small>
+                  </div>
+
+        <div>
+                  <label class="fw-bold">Postal Code</label>
+                  <!--bind name to ngModel, it's required with minimum 5 characters-->
+                  <input type="text" name="postcode" [(ngModel)]="user.postcode" #postcode="ngModel" required
+                minlength="5" class="form-control">
+                  <!--show error only when field is not valid & it's dirty or form submited-->
+                  <small [hidden]="postcode.valid || (postcode.pristine && !f.submitted)">
+                      Post code is required (minimum 5 characters).
+                      </small>
+                  </div>
+             
+              <div>
+              <label class="fw-bold">Designation</label>
+                  <input type="text" name="designation" [(ngModel)]="user.designation" #designation="ngModel" required
+                class="form-control">
+                  <small [hidden]="designation.valid || (designation.pristine && !f.submitted)" class="text-danger">
+                      Designation is required.
+                      </small>
+                  </div>
+
+
+              <!--postcode-->
+              <div>
+                  <label class="fw-bold">Remark</label>
+                  <input type="text" name="remark" [(ngModel)]="user.remark" class="form-control">
+                  </div>
+
+              <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+    <br/><br/>
+<!-- 
+       <h4 class="text-success">Your Details</h4>
+       <h5> Name: {{f.value.name}}</h5>
+       <h5> Address: {{f.value.address}}</h5>
+       <h5> Postcode: {{f.value.postcode}}</h5>
+       <h5> Designation: {{f.value.designation}}</h5>
+       <h5> Gender: {{f.value.gender}}</h5>
+       <h5> Remark: {{f.value.remark}}</h5>
+
+     <h5> {{f.value|json}}</h5> -->
+
+</div>

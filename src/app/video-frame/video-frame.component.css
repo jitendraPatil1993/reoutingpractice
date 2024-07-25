@@ -1,0 +1,8 @@
+.video_div{
+    margin-left: -210px;
+  }
+  @media (max-width:1199px){
+    .video_div{
+      margin-left: -270px;
+    } 
+  }
